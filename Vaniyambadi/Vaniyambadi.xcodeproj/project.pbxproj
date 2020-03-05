@@ -20,6 +20,10 @@
 		803206BA240FD813003C02BE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803206B9240FD813003C02BE /* Constant.swift */; };
 		803206BC240FEA4D003C02BE /* JummaHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803206BB240FEA4D003C02BE /* JummaHeaderView.swift */; };
 		803206BE240FEA7A003C02BE /* JummaHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803206BD240FEA7A003C02BE /* JummaHeaderView.xib */; };
+		8061DBBB24112E6200E7C972 /* NamazTimingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DBBA24112E6200E7C972 /* NamazTimingViewController.swift */; };
+		8061DBBD2411307500E7C972 /* NamazTimings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DBBC2411307500E7C972 /* NamazTimings.swift */; };
+		8061DBBF2411398100E7C972 /* NamazTimingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DBBE2411398100E7C972 /* NamazTimingTableViewCell.swift */; };
+		8061DBC12411439600E7C972 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DBC02411439600E7C972 /* InfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		803206B9240FD813003C02BE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		803206BB240FEA4D003C02BE /* JummaHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JummaHeaderView.swift; sourceTree = "<group>"; };
 		803206BD240FEA7A003C02BE /* JummaHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JummaHeaderView.xib; sourceTree = "<group>"; };
+		8061DBBA24112E6200E7C972 /* NamazTimingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamazTimingViewController.swift; sourceTree = "<group>"; };
+		8061DBBC2411307500E7C972 /* NamazTimings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamazTimings.swift; sourceTree = "<group>"; };
+		8061DBBE2411398100E7C972 /* NamazTimingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamazTimingTableViewCell.swift; sourceTree = "<group>"; };
+		8061DBC02411439600E7C972 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,10 @@
 		803206AC240FD055003C02BE /* Namaz Timings */ = {
 			isa = PBXGroup;
 			children = (
+				8061DBBA24112E6200E7C972 /* NamazTimingViewController.swift */,
+				8061DBC02411439600E7C972 /* InfoTableViewCell.swift */,
+				8061DBBE2411398100E7C972 /* NamazTimingTableViewCell.swift */,
+				8061DBBC2411307500E7C972 /* NamazTimings.swift */,
 			);
 			path = "Namaz Timings";
 			sourceTree = "<group>";
@@ -192,11 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8061DBC12411439600E7C972 /* InfoTableViewCell.swift in Sources */,
 				803206BC240FEA4D003C02BE /* JummaHeaderView.swift in Sources */,
 				803206B6240FD713003C02BE /* JummaTableViewCell.swift in Sources */,
 				803206AF240FD08E003C02BE /* JummaViewController.swift in Sources */,
 				803206B2240FD0E3003C02BE /* BaseViewController.swift in Sources */,
+				8061DBBD2411307500E7C972 /* NamazTimings.swift in Sources */,
+				8061DBBB24112E6200E7C972 /* NamazTimingViewController.swift in Sources */,
 				803206BA240FD813003C02BE /* Constant.swift in Sources */,
+				8061DBBF2411398100E7C972 /* NamazTimingTableViewCell.swift in Sources */,
 				8032069F240FC82D003C02BE /* Vaniyambadi.xcdatamodeld in Sources */,
 				803206B8240FD755003C02BE /* BaseTableViewCell.swift in Sources */,
 				803206B4240FD2E2003C02BE /* Jumma.swift in Sources */,

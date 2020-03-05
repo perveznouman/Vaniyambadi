@@ -10,6 +10,9 @@ import Foundation
 
 struct CellConstant {
     
-   static let kJummanCellIdentifier = "JummaCell"
+    static let kJummanCellIdentifier = "JummaCell"
+    static let kNamazCellIdentifier = "NamazCell"
+    static let kInfoCellIdentifier = "InfoCell"
 
+    
 }
