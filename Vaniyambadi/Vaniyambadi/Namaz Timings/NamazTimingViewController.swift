@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class NamazTimingViewController: BaseViewController {
 
@@ -31,6 +32,26 @@ class NamazTimingViewController: BaseViewController {
         namazTimings_tableView.estimatedRowHeight = 44
 
     }
+    
+    fileprivate func sendEmail() {
+        
+        DispatchQueue.main.async {
+            if MFMailComposeViewController.canSendMail() {
+                
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients([NamazTimingsConstant.kemailId])
+                mail.setMessageBody("<p>Hi!</p>", isHTML: true)
+                mail.setSubject("Feedback")
+                self.present(mail, animated: true)
+            } else {
+                
+                let alert = UIAlertController(title: AlertConstant.kError, message: AlertConstant.kEmailErrorMessage, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: AlertConstant.kOk, style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension NamazTimingViewController: UITableViewDataSource {
@@ -43,23 +64,23 @@ extension NamazTimingViewController: UITableViewDataSource {
         var cell: BaseTableViewCell?
         switch indexPath.row {
         case (0...7):
-            let namazTiming_cell = tableView.dequeueReusableCell(withIdentifier: CellConstant.kNamazCellIdentifier, for: indexPath) as! NamazTimingTableViewCell
+            let namazTiming_cell = tableView.dequeueReusableCell(withIdentifier: CellIDConstant.kNamazCellIdentifier, for: indexPath) as! NamazTimingTableViewCell
             namazTiming_cell.setupData(namazTimingList[indexPath.row])
             cell = namazTiming_cell
             break
         case (8):
-            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
-            infoCell.info_lable?.text = "Vaniymabadi App is design to provide town updtes. Please feel free to reach us to provide updates and report errors."
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellIDConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
+            infoCell.info_lable?.text = NamazTimingsConstant.kAppInfo
             cell = infoCell
             break
         case (9):
-            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
-            infoCell.info_lable?.text = "Phone: 9487893137"
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellIDConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
+            infoCell.info_lable?.text = "Phone: "+NamazTimingsConstant.kPhoneNumber
             cell = infoCell
             break
         case (10):
-            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
-            infoCell.info_lable?.text = "contact@theadvotis.com"
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: CellIDConstant.kInfoCellIdentifier, for: indexPath) as! InfoTableViewCell
+            infoCell.info_lable?.text = "Email: "+NamazTimingsConstant.kemailId
             cell = infoCell
             break
         default:
@@ -80,5 +101,27 @@ extension NamazTimingViewController: UITableViewDelegate {
         default:
             return UITableView.automaticDimension
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 9:
+            UIApplication.shared.open(NSURL(string: "tel://"+NamazTimingsConstant.kPhoneNumber)! as URL, options: [:], completionHandler: nil)
+            break
+        case 10:
+            sendEmail()
+            break
+        default:
+            break
+        }
+    }
+}
+
+extension NamazTimingViewController: MFMailComposeViewControllerDelegate {
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

@@ -40,7 +40,7 @@ extension JummaViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellConstant.kJummanCellIdentifier, for: indexPath) as! JummaTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIDConstant.kJummanCellIdentifier, for: indexPath) as! JummaTableViewCell
         cell.setupData(jummaList[indexPath.row], forIndex: indexPath.row)
         return cell
     }
